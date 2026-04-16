@@ -1,0 +1,96 @@
+@page
+@model Learner_Management_System.Pages_Assessments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].AssessmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].AssessmentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].MaxScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].PassingScore)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].WeightPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].AssessmentBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assessment[0].CreatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Assessment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessmentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassingScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightPercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification.QualificationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessmentBank.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AssessmentId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AssessmentId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AssessmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

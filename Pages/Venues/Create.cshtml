@@ -1,0 +1,60 @@
+@page
+@model Learner_Management_System.Pages_Venues.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>Venue</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Venue.VenueName" class="control-label"></label>
+                <input asp-for="Venue.VenueName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Venue.VenueName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.Address" class="control-label"></label>
+                <input asp-for="Venue.Address" class="form-control" />
+                <span asp-validation-for="Venue.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.City" class="control-label"></label>
+                <input asp-for="Venue.City" class="form-control" />
+                <span asp-validation-for="Venue.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.Capacity" class="control-label"></label>
+                <input asp-for="Venue.Capacity" class="form-control" />
+                <span asp-validation-for="Venue.Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Venue.Facilities" class="control-label"></label>
+                <input asp-for="Venue.Facilities" class="form-control" />
+                <span asp-validation-for="Venue.Facilities" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Venue.IsAvailable" /> @Html.DisplayNameFor(model => model.Venue.IsAvailable)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,82 @@
+@page
+@model Learner_Management_System.Pages_AssessmentBanks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AssessmentBank</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AssessmentBank.AssessmentBankId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="AssessmentBank.QualificationId" class="control-label"></label>
+                <select asp-for="AssessmentBank.QualificationId" class="form-control" asp-items="ViewBag.QualificationId" aria-required="true"></select>
+                <span asp-validation-for="AssessmentBank.QualificationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.CreatedByUserId" class="control-label"></label>
+                <select asp-for="AssessmentBank.CreatedByUserId" class="form-control" asp-items="ViewBag.CreatedByUserId" ></select>
+                <span asp-validation-for="AssessmentBank.CreatedByUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.AssessorDeveloperId" class="control-label"></label>
+                <select asp-for="AssessmentBank.AssessorDeveloperId" class="form-control" asp-items="ViewBag.AssessorDeveloperId" ></select>
+                <span asp-validation-for="AssessmentBank.AssessorDeveloperId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="AssessmentBank.BankName" class="control-label"></label>
+                <input asp-for="AssessmentBank.BankName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="AssessmentBank.BankName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.Description" class="control-label"></label>
+                <input asp-for="AssessmentBank.Description" class="form-control" />
+                <span asp-validation-for="AssessmentBank.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.Version" class="control-label"></label>
+                <input asp-for="AssessmentBank.Version" class="form-control" />
+                <span asp-validation-for="AssessmentBank.Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.Status" class="control-label"></label>
+                <select asp-for="AssessmentBank.Status" class="form-control" ></select>
+                <span asp-validation-for="AssessmentBank.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.CreatedDate" class="control-label"></label>
+                <input asp-for="AssessmentBank.CreatedDate" class="form-control" />
+                <span asp-validation-for="AssessmentBank.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssessmentBank.LastModifiedDate" class="control-label"></label>
+                <input asp-for="AssessmentBank.LastModifiedDate" class="form-control" />
+                <span asp-validation-for="AssessmentBank.LastModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AssessmentBank.IsActive" /> @Html.DisplayNameFor(model => model.AssessmentBank.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,132 @@
+@page
+@model Learner_Management_System.Pages_RandomizedPapers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].PaperName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].PaperVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].FileType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].FileSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].FileData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].RandomizationSeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].QuestionPoolSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].QuestionsPerPaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].UploadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].LastModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].AssessmentBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomizedPaper[0].UploadedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RandomizedPaper) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaperVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RandomizationSeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionPoolSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionsPerPaper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessmentBank.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification.QualificationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadedBy.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.RandomizedPaperId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.RandomizedPaperId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.RandomizedPaperId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 text-center">
+            <div class="alert alert-danger">
+                <h1 class="display-4">Access Denied</h1>
+                <p class="lead">You do not have permission to access this resource.</p>
+                <hr />
+                <p>If you believe this is an error, please contact your system administrator.</p>
+                <a asp-page="/Index" class="btn btn-primary">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>

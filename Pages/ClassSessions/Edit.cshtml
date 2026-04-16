@@ -1,0 +1,79 @@
+@page
+@model Learner_Management_System.Pages_ClassSessions.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ClassSession</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClassSession.ClassSessionId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="ClassSession.QualificationId" class="control-label"></label>
+                <select asp-for="ClassSession.QualificationId" class="form-control" asp-items="ViewBag.QualificationId" aria-required="true"></select>
+                <span asp-validation-for="ClassSession.QualificationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="ClassSession.TeacherId" class="control-label"></label>
+                <select asp-for="ClassSession.TeacherId" class="form-control" asp-items="ViewBag.TeacherId" aria-required="true"></select>
+                <span asp-validation-for="ClassSession.TeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="ClassSession.VenueId" class="control-label"></label>
+                <select asp-for="ClassSession.VenueId" class="form-control" asp-items="ViewBag.VenueId" aria-required="true"></select>
+                <span asp-validation-for="ClassSession.VenueId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="ClassSession.SessionName" class="control-label"></label>
+                <input asp-for="ClassSession.SessionName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="ClassSession.SessionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassSession.StartDateTime" class="control-label"></label>
+                <input asp-for="ClassSession.StartDateTime" class="form-control" />
+                <span asp-validation-for="ClassSession.StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassSession.EndDateTime" class="control-label"></label>
+                <input asp-for="ClassSession.EndDateTime" class="form-control" />
+                <span asp-validation-for="ClassSession.EndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassSession.MaxCapacity" class="control-label"></label>
+                <input asp-for="ClassSession.MaxCapacity" class="form-control" />
+                <span asp-validation-for="ClassSession.MaxCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassSession.Description" class="control-label"></label>
+                <input asp-for="ClassSession.Description" class="form-control" />
+                <span asp-validation-for="ClassSession.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClassSession.IsCancelled" /> @Html.DisplayNameFor(model => model.ClassSession.IsCancelled)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

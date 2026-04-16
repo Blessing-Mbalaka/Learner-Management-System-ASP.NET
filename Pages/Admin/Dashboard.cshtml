@@ -1,0 +1,107 @@
+@page
+@using Learner_Management_System.Models
+@using Microsoft.AspNetCore.Identity
+@model AdminDashboardModel
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<div class="page-header">
+    <h1>Admin Dashboard</h1>
+    <p>Assessment Bank Management</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-primary">@Model.TotalAssessmentBanks</h3>
+                <p class="mb-0">Assessment Banks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-warning">@Model.PendingApproval</h3>
+                <p class="mb-0">Pending Approval</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-success">@Model.Published</h3>
+                <p class="mb-0">Published</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-info">@Model.TotalUploads</h3>
+                <p class="mb-0">Total Uploads</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card dashboard-card">
+            <div class="card-header category-header workflow">
+                <h5 class="mb-0">Recent Assessment Banks</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.RecentBanks.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Bank Name</th>
+                                <th>Qualification</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var bank in Model.RecentBanks)
+                            {
+                                <tr>
+                                    <td>@bank.BankName</td>
+                                    <td>@bank.QualificationName</td>
+                                    <td><span class="badge bg-info">@bank.Status</span></td>
+                                    <td>
+                                        <a href="/AssessmentBanks/Details?id=@bank.BankId" class="btn btn-sm btn-outline-primary">View</a>
+                                        <a href="/AssessmentBanks/Edit?id=@bank.BankId" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="text-muted mb-0">No assessment banks yet.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header users">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/AssessmentBanks/Create">Create Assessment Bank</a></li>
+                    <li><a href="/AdminUploads/Create">Upload Document</a></li>
+                    <li><a href="/DocumentWorkflows">View Workflows</a></li>
+                    <li><a href="/Qualifications">Manage Qualifications</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

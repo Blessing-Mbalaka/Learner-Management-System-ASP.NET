@@ -1,0 +1,66 @@
+@page
+@model Learner_Management_System.Pages_Feedbacks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].FeedbackText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].FeedbackDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].Learner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].Teacher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback[0].ClassSession)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Feedback) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Learner.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassSession.SessionName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.FeedbackId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.FeedbackId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.FeedbackId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

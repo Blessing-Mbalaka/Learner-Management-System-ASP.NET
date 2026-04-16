@@ -1,0 +1,55 @@
+@page
+@model Learner_Management_System.Pages_Venues.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Venue</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.VenueName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.VenueName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.Capacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.Capacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.Facilities)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.Facilities)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Venue.IsAvailable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Venue.IsAvailable)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Venue.VenueId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

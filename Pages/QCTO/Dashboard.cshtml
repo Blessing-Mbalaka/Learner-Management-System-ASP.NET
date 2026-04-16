@@ -1,0 +1,103 @@
+@page
+@using Learner_Management_System.Models
+@using Microsoft.AspNetCore.Identity
+@model QCTODashboardModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "QCTO Dashboard";
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<div class="page-header">
+    <h1>QCTO Dashboard</h1>
+    <p>Quality Council for Trades and Occupations - Final Compliance Review</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-primary">@Model.PendingReviewCount</h3>
+                <p class="mb-0">Pending Review</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-success">@Model.ApprovedCount</h3>
+                <p class="mb-0">Approved</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-danger">@Model.RejectedCount</h3>
+                <p class="mb-0">Rejected</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card dashboard-card">
+            <div class="card-header category-header workflow">
+                <h5 class="mb-0">Documents Awaiting QCTO Review</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.PendingDocuments.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Document Type</th>
+                                <th>Title</th>
+                                <th>Qualification</th>
+                                <th>Submitted Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var doc in Model.PendingDocuments)
+                            {
+                                <tr>
+                                    <td>@doc.DocumentType</td>
+                                    <td>@doc.Title</td>
+                                    <td>@doc.QualificationName</td>
+                                    <td>@doc.SubmittedDate.ToShortDateString()</td>
+                                    <td>
+                                        <a href="@doc.ReviewUrl" class="btn btn-sm btn-primary">Review</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="text-muted mb-0">No documents pending QCTO review at this time.</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card dashboard-card">
+            <div class="card-header category-header workflow">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/DocumentWorkflows">View All Workflows</a></li>
+                    <li><a href="/AssessmentBanks">Assessment Banks</a></li>
+                    <li><a href="/RandomizedPapers">Randomized Papers</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

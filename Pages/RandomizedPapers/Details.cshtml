@@ -1,0 +1,121 @@
+@page
+@model Learner_Management_System.Pages_RandomizedPapers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>RandomizedPaper</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.PaperName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.PaperName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.PaperVersion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.PaperVersion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.FileName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.FileName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.FileType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.FileType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.FileSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.FileSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.FileData)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.FileData)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.RandomizationSeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.RandomizationSeed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.QuestionPoolSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.QuestionPoolSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.QuestionsPerPaper)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.QuestionsPerPaper)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.UploadDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.UploadDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.LastModifiedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.LastModifiedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.IsActive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.AssessmentBank)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.AssessmentBank.BankName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.Qualification)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.Qualification.QualificationName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RandomizedPaper.UploadedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RandomizedPaper.UploadedBy.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.RandomizedPaper.RandomizedPaperId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

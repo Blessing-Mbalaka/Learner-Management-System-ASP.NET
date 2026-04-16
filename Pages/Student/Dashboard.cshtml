@@ -1,0 +1,107 @@
+@page
+@using Learner_Management_System.Models
+@using Microsoft.AspNetCore.Identity
+@model StudentDashboardModel
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Student Dashboard";
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<div class="page-header">
+    <h1>Welcome, @user?.FirstName @user?.LastName</h1>
+    <p>Student Dashboard</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-primary">@Model.ActiveEnrollments</h3>
+                <p class="mb-0">Active Courses</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-warning">@Model.PendingAssignments</h3>
+                <p class="mb-0">Pending Assignments</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-success">@Model.AverageGrade.ToString("F2")%</h3>
+                <p class="mb-0">Average Grade</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card dashboard-card">
+            <div class="card-body text-center">
+                <h3 class="text-info">@Model.AttendanceRate.ToString("F1")%</h3>
+                <p class="mb-0">Attendance Rate</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card dashboard-card">
+            <div class="card-header category-header academic">
+                <h5 class="mb-0">My Courses</h5>
+            </div>
+            <div class="card-body">
+                @if (Model.MyCourses.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Status</th>
+                                <th>Grade</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var course in Model.MyCourses)
+                            {
+                                <tr>
+                                    <td>@course.CourseName</td>
+                                    <td><span class="badge bg-primary">@course.Status</span></td>
+                                    <td>@(course.Grade?.ToString("F2") ?? "N/A")</td>
+                                    <td>
+                                        <a href="/Enrollments/Details?id=@course.EnrollmentId" class="btn btn-sm btn-outline-primary">View</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="text-muted mb-0">You are not enrolled in any courses yet.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header users">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Enrollments">My Enrollments</a></li>
+                    <li><a href="/Grades">My Grades</a></li>
+                    <li><a href="/LearnerUploads">My Uploads</a></li>
+                    <li><a href="/Attendances">My Attendance</a></li>
+                    <li><a href="/Feedbacks/Create">Give Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

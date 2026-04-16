@@ -1,0 +1,92 @@
+@page
+@model Learner_Management_System.Pages_DocumentWorkflows.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DocumentWorkflow</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DocumentWorkflow.WorkflowId" />
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.DocumentType" class="control-label"></label>
+                <input asp-for="DocumentWorkflow.DocumentType" class="form-control" />
+                <span asp-validation-for="DocumentWorkflow.DocumentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.AssessmentBankId" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.AssessmentBankId" class="form-control" asp-items="ViewBag.AssessmentBankId" ></select>
+                <span asp-validation-for="DocumentWorkflow.AssessmentBankId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.AdminUploadId" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.AdminUploadId" class="form-control" asp-items="ViewBag.AdminUploadId" ></select>
+                <span asp-validation-for="DocumentWorkflow.AdminUploadId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.AssessmentId" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.AssessmentId" class="form-control" asp-items="ViewBag.AssessmentId" ></select>
+                <span asp-validation-for="DocumentWorkflow.AssessmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.RandomizedPaperId" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.RandomizedPaperId" class="form-control" asp-items="ViewBag.RandomizedPaperId" ></select>
+                <span asp-validation-for="DocumentWorkflow.RandomizedPaperId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="DocumentWorkflow.Status" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.Status" class="form-control" aria-required="true"></select>
+                <span asp-validation-for="DocumentWorkflow.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.PreviousStatus" class="control-label"></label>
+                <input asp-for="DocumentWorkflow.PreviousStatus" class="form-control" />
+                <span asp-validation-for="DocumentWorkflow.PreviousStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="DocumentWorkflow.ActionByUserId" class="control-label"></label>
+                <select asp-for="DocumentWorkflow.ActionByUserId" class="form-control" asp-items="ViewBag.ActionByUserId" aria-required="true"></select>
+                <span asp-validation-for="DocumentWorkflow.ActionByUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.Comments" class="control-label"></label>
+                <input asp-for="DocumentWorkflow.Comments" class="form-control" />
+                <span asp-validation-for="DocumentWorkflow.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.Feedback" class="control-label"></label>
+                <input asp-for="DocumentWorkflow.Feedback" class="form-control" />
+                <span asp-validation-for="DocumentWorkflow.Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentWorkflow.ActionDate" class="control-label"></label>
+                <input asp-for="DocumentWorkflow.ActionDate" class="form-control" />
+                <span asp-validation-for="DocumentWorkflow.ActionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="DocumentWorkflow.IsApproved" /> @Html.DisplayNameFor(model => model.DocumentWorkflow.IsApproved)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

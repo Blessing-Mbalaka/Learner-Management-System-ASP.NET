@@ -1,0 +1,102 @@
+@page
+@model Learner_Management_System.Pages_DocumentWorkflows.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].DocumentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].PreviousStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].Feedback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].ActionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].IsApproved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].AssessmentBank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].AdminUpload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].Assessment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].RandomizedPaper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentWorkflow[0].ActionBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DocumentWorkflow) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreviousStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssessmentBank.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdminUpload.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assessment.AssessmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RandomizedPaper.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionBy.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.WorkflowId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.WorkflowId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.WorkflowId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

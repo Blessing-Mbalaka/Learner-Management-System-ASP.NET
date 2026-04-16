@@ -1,0 +1,84 @@
+@page
+@model Learner_Management_System.Pages_ClassSessions.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].SessionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].StartDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].EndDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].MaxCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].IsCancelled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].Teacher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassSession[0].Venue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ClassSession) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SessionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCancelled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification.QualificationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue.VenueName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ClassSessionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ClassSessionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ClassSessionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

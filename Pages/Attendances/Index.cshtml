@@ -1,0 +1,60 @@
+@page
+@model Learner_Management_System.Pages_Attendances.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance[0].AttendanceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance[0].Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance[0].Learner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attendance[0].ClassSession)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Attendance) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendanceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Learner.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassSession.SessionName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AttendanceId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AttendanceId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AttendanceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

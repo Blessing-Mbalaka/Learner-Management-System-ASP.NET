@@ -1,0 +1,66 @@
+@page
+@model Learner_Management_System.Pages_Venues.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].VenueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].Facilities)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue[0].IsAvailable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Venue) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facilities)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAvailable)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VenueId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VenueId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VenueId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

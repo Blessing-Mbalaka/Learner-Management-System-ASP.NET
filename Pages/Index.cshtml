@@ -1,0 +1,132 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header">
+    <h1>Learner Management System</h1>
+    <p>Comprehensive platform for managing learners, courses, assessments, and institutional workflows</p>
+</div>
+
+<div class="row">
+    <!-- Core Entities -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header">
+                <h5 class="mb-0">Core Entities</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Learners">Learners</a></li>
+                    <li><a href="/Teachers">Teachers</a></li>
+                    <li><a href="/Qualifications">Qualifications</a></li>
+                    <li><a href="/Venues">Venues</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Academic Management -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header academic">
+                <h5 class="mb-0">Academic Management</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Enrollments">Enrollments</a></li>
+                    <li><a href="/ClassSessions">Class Sessions</a></li>
+                    <li><a href="/Assessments">Assessments</a></li>
+                    <li><a href="/Grades">Grades</a></li>
+                    <li><a href="/Attendances">Attendance</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header financial">
+                <h5 class="mb-0">Financial Management</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Costs">Costs</a></li>
+                    <li><a href="/QualificationCosts">Qualification Costs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- File Uploads -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header academic">
+                <h5 class="mb-0">Document Management</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/LearnerUploads">Learner Uploads</a></li>
+                    <li><a href="/AdminUploads">Admin Uploads</a></li>
+                    <li><a href="/RandomizedPapers">Randomized Papers</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- User & Roles -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header users">
+                <h5 class="mb-0">User Management</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Users">Users</a></li>
+                    <li><a href="/Admins">Administrators</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workflow System -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header workflow">
+                <h5 class="mb-0">Workflow System</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/AssessmentBanks">Assessment Banks</a></li>
+                    <li><a href="/DocumentWorkflows">Document Workflows</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Engagement -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-header category-header users">
+                <h5 class="mb-0">Feedback & Engagement</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav-link-list">
+                    <li><a href="/Feedbacks">Feedback Management</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-spacing">
+    <div class="info-box">
+        <h5>System Information</h5>
+        <p><strong>Database:</strong> SQLite (LearnerManagementSystem.db)</p>
+        <p><strong>Total Models:</strong> 17 entities with full CRUD operations</p>
+        <p><strong>Workflow Roles:</strong> Student, Lecturer, Admin, Assessor Developer, Assessment Centre Admin, ETQA, QCTO</p>
+        <p class="mb-0"><strong>Status:</strong> System operational and ready for use</p>
+    </div>
+</div>

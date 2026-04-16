@@ -1,0 +1,102 @@
+@page
+@model Learner_Management_System.Pages_AdminUploads.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].FileType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].FileSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].UploadCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].FileData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].UploadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].IsPublished)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].Admin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].Qualification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdminUpload[0].UploadedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AdminUpload) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPublished)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualification.QualificationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadedBy.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UploadId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UploadId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UploadId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

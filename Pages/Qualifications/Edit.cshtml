@@ -1,0 +1,61 @@
+@page
+@model Learner_Management_System.Pages_Qualifications.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Qualification</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Qualification.QualificationId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Qualification.QualificationName" class="control-label"></label>
+                <input asp-for="Qualification.QualificationName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Qualification.QualificationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qualification.QualificationCode" class="control-label"></label>
+                <input asp-for="Qualification.QualificationCode" class="form-control" />
+                <span asp-validation-for="Qualification.QualificationCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qualification.Description" class="control-label"></label>
+                <input asp-for="Qualification.Description" class="form-control" />
+                <span asp-validation-for="Qualification.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qualification.DurationInHours" class="control-label"></label>
+                <input asp-for="Qualification.DurationInHours" class="form-control" />
+                <span asp-validation-for="Qualification.DurationInHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qualification.Level" class="control-label"></label>
+                <input asp-for="Qualification.Level" class="form-control" />
+                <span asp-validation-for="Qualification.Level" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Qualification.IsActive" /> @Html.DisplayNameFor(model => model.Qualification.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

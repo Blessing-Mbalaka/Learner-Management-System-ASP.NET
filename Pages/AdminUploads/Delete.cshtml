@@ -1,0 +1,94 @@
+@page
+@model Learner_Management_System.Pages_AdminUploads.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AdminUpload</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.FileName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.FileName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.FileType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.FileType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.FileSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.FileSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.UploadCategory)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.UploadCategory)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.FileData)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.FileData)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.UploadDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.UploadDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.IsPublished)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.IsPublished)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.Admin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.Admin.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.Qualification)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.Qualification.QualificationName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdminUpload.UploadedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdminUpload.UploadedBy.Email)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="AdminUpload.UploadId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

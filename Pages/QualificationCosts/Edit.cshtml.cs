@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Learner_Management_System.Data;
+using Learner_Management_System.Models;
+
+namespace Learner_Management_System.Pages_QualificationCosts
+{
+    public class EditModel : PageModel
+    {
+        private readonly Learner_Management_System.Data.ApplicationDbContext _context;
+
+        public EditModel(Learner_Management_System.Data.ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        [BindProperty]
+        public Qualification_cost Qualification_cost { get; set; } = default!;
+
+        public async Task<IActionResult> OnGetAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var qualification_cost =  await _context.QualificationCosts.FirstOrDefaultAsync(m => m.QualificationCostId == id);
+            if (qualification_cost == null)
+            {
+                return NotFound();
+            }
+            Qualification_cost = qualification_cost;
+           ViewData["CostId"] = new SelectList(_context.Costs, "CostId", "CostType");
+           ViewData["QualificationId"] = new SelectList(_context.Qualifications, "QualificationId", "QualificationName");
+            return Page();
+        }
+
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more information, see https://aka.ms/RazorPagesCRUD.
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _context.Attach(Qualification_cost).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!Qualification_costExists(Qualification_cost.QualificationCostId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToPage("./Index");
+        }
+
+        private bool Qualification_costExists(int id)
+        {
+            return _context.QualificationCosts.Any(e => e.QualificationCostId == id);
+        }
+    }
+}

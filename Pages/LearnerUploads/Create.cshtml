@@ -1,0 +1,87 @@
+@page
+@model Learner_Management_System.Pages_LearnerUploads.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>LearnerUpload</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="LearnerUpload.LearnerId" class="control-label"></label>
+                <select asp-for="LearnerUpload.LearnerId" class ="form-control" asp-items="ViewBag.LearnerId" aria-required="true"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearnerUpload.AssessmentId" class="control-label"></label>
+                <select asp-for="LearnerUpload.AssessmentId" class ="form-control" asp-items="ViewBag.AssessmentId" ></select>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="LearnerUpload.FileName" class="control-label"></label>
+                <input asp-for="LearnerUpload.FileName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LearnerUpload.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="LearnerUpload.FileType" class="control-label"></label>
+                <input asp-for="LearnerUpload.FileType" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LearnerUpload.FileType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearnerUpload.FileSize" class="control-label"></label>
+                <input asp-for="LearnerUpload.FileSize" class="form-control" />
+                <span asp-validation-for="LearnerUpload.FileSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="LearnerUpload.UploadCategory" class="control-label"></label>
+                <input asp-for="LearnerUpload.UploadCategory" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LearnerUpload.UploadCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearnerUpload.Description" class="control-label"></label>
+                <input asp-for="LearnerUpload.Description" class="form-control" />
+                <span asp-validation-for="LearnerUpload.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="LearnerUpload.FileData" class="control-label"></label>
+                <input asp-for="LearnerUpload.FileData" class="form-control" aria-required="true"/>
+                <span asp-validation-for="LearnerUpload.FileData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearnerUpload.UploadDate" class="control-label"></label>
+                <input asp-for="LearnerUpload.UploadDate" class="form-control" />
+                <span asp-validation-for="LearnerUpload.UploadDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LearnerUpload.IsApproved" /> @Html.DisplayNameFor(model => model.LearnerUpload.IsApproved)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LearnerUpload.ReviewComments" class="control-label"></label>
+                <input asp-for="LearnerUpload.ReviewComments" class="form-control" />
+                <span asp-validation-for="LearnerUpload.ReviewComments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

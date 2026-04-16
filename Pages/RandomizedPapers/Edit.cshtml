@@ -1,0 +1,120 @@
+@page
+@model Learner_Management_System.Pages_RandomizedPapers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RandomizedPaper</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RandomizedPaper.RandomizedPaperId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="RandomizedPaper.AssessmentBankId" class="control-label"></label>
+                <select asp-for="RandomizedPaper.AssessmentBankId" class="form-control" asp-items="ViewBag.AssessmentBankId" aria-required="true"></select>
+                <span asp-validation-for="RandomizedPaper.AssessmentBankId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.QualificationId" class="control-label"></label>
+                <select asp-for="RandomizedPaper.QualificationId" class="form-control" asp-items="ViewBag.QualificationId" ></select>
+                <span asp-validation-for="RandomizedPaper.QualificationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.UploadedByUserId" class="control-label"></label>
+                <select asp-for="RandomizedPaper.UploadedByUserId" class="form-control" asp-items="ViewBag.UploadedByUserId" ></select>
+                <span asp-validation-for="RandomizedPaper.UploadedByUserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="RandomizedPaper.PaperName" class="control-label"></label>
+                <input asp-for="RandomizedPaper.PaperName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="RandomizedPaper.PaperName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.PaperVersion" class="control-label"></label>
+                <input asp-for="RandomizedPaper.PaperVersion" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.PaperVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="RandomizedPaper.FileName" class="control-label"></label>
+                <input asp-for="RandomizedPaper.FileName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="RandomizedPaper.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="RandomizedPaper.FileType" class="control-label"></label>
+                <input asp-for="RandomizedPaper.FileType" class="form-control" aria-required="true"/>
+                <span asp-validation-for="RandomizedPaper.FileType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.FileSize" class="control-label"></label>
+                <input asp-for="RandomizedPaper.FileSize" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.FileSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="RandomizedPaper.FileData" class="control-label"></label>
+                <input asp-for="RandomizedPaper.FileData" class="form-control" aria-required="true"/>
+                <span asp-validation-for="RandomizedPaper.FileData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.RandomizationSeed" class="control-label"></label>
+                <input asp-for="RandomizedPaper.RandomizationSeed" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.RandomizationSeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.QuestionPoolSize" class="control-label"></label>
+                <input asp-for="RandomizedPaper.QuestionPoolSize" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.QuestionPoolSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.QuestionsPerPaper" class="control-label"></label>
+                <input asp-for="RandomizedPaper.QuestionsPerPaper" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.QuestionsPerPaper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.Description" class="control-label"></label>
+                <input asp-for="RandomizedPaper.Description" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.Status" class="control-label"></label>
+                <select asp-for="RandomizedPaper.Status" class="form-control" ></select>
+                <span asp-validation-for="RandomizedPaper.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.UploadDate" class="control-label"></label>
+                <input asp-for="RandomizedPaper.UploadDate" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.UploadDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandomizedPaper.LastModifiedDate" class="control-label"></label>
+                <input asp-for="RandomizedPaper.LastModifiedDate" class="form-control" />
+                <span asp-validation-for="RandomizedPaper.LastModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RandomizedPaper.IsActive" /> @Html.DisplayNameFor(model => model.RandomizedPaper.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

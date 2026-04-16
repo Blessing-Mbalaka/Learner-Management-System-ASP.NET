@@ -1,0 +1,73 @@
+@page
+@model Learner_Management_System.Pages_Learners.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Learners</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Learners.LearnerId" />
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Learners.FirstName" class="control-label"></label>
+                <input asp-for="Learners.FirstName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Learners.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Learners.LastName" class="control-label"></label>
+                <input asp-for="Learners.LastName" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Learners.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+<span class="text-danger">*</span>
+                <label asp-for="Learners.Email" class="control-label"></label>
+                <input asp-for="Learners.Email" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Learners.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Learners.PhoneNumber" class="control-label"></label>
+                <input asp-for="Learners.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Learners.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Learners.Address" class="control-label"></label>
+                <input asp-for="Learners.Address" class="form-control" />
+                <span asp-validation-for="Learners.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Learners.DateOfBirth" class="control-label"></label>
+                <input asp-for="Learners.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Learners.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Learners.EnrollmentDate" class="control-label"></label>
+                <input asp-for="Learners.EnrollmentDate" class="form-control" />
+                <span asp-validation-for="Learners.EnrollmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Learners.IsActive" /> @Html.DisplayNameFor(model => model.Learners.IsActive)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

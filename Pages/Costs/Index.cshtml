@@ -1,0 +1,60 @@
+@page
+@model Learner_Management_System.Pages_Costs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost[0].CostType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost[0].EffectiveDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost[0].IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cost) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EffectiveDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CostId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CostId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CostId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
